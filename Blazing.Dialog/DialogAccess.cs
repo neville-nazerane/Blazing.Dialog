@@ -14,9 +14,9 @@ namespace Blazing.Dialog
 
         protected static ConcurrentDictionary<string, DialogAccess> openedDialogues = new ConcurrentDictionary<string, DialogAccess>();
 
-        public Func<Task> OpenAction { protected get; set; }
-        public Func<Task> CloseAction { protected get; set; }
-        public string DialogId { protected get; set; }
+        internal Func<Task> OpenAction { get; set; }
+        internal Func<Task> CloseAction { get; set; }
+        internal string DialogId { get; set; }
         public string Title { get; set; }
 
         public virtual Task OpenAsync(string title)
@@ -37,7 +37,7 @@ namespace Blazing.Dialog
 
         public virtual Task CancelAsync() => CloseAction();
 
-        public virtual void ClearTask()
+        internal virtual void ClearTask()
         {
             taskCompletionSource.SetResult(null);
             openedDialogues.TryRemove(DialogId, out _);
@@ -74,7 +74,7 @@ namespace Blazing.Dialog
             return res;
         }
 
-        public override void ClearTask()
+        internal override void ClearTask()
         {
             taskCompletionSource.SetResult(default);
             openedDialogues.TryRemove(DialogId, out _);
