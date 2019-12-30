@@ -22,7 +22,7 @@ namespace Blazing.Dialog
         public virtual Task OpenAsync(string title)
         {
             Title = title;
-            return OpenAction();
+            return OpenAsync();
         }
 
         public async Task OpenAsync()
@@ -60,7 +60,7 @@ namespace Blazing.Dialog
         public override Task OpenAsync(string title)
         {
             Title = title;
-            return OpenAction();
+            return OpenAsync();
         }
 
         public new async Task<TResponse> OpenAsync()

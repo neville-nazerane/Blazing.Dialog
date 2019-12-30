@@ -9,18 +9,16 @@ namespace Blazing.Sample.Pages
     public partial class SimpleDialog
     {
         
-        readonly DialogAccess _dialog = new DialogAccess();
+        readonly DialogAccess dialog = new DialogAccess();
 
         string message;
 
         async Task ShowAsync()
         {
             message = "Dialog is now open";
-            await _dialog.OpenAsync();
+            await dialog.OpenAsync("Title from code");
             message = "Dialog has now closed";
         }
-
-
 
     }
 }

@@ -4,6 +4,18 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <RootNamespace>Blazing.Dialog</RootNamespace>
+
+    <Authors>Neville Nazerane</Authors>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>
+      Provides awaitable dialogs using bootstrap modals
+    </Description>
+    <PackageProjectUrl>https://github.com/neville-nazerane/Blazing.Dialog</PackageProjectUrl>
+    <PackageTags>bootstrap modal blazor dialog async await popup</PackageTags>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageReleaseNotes>
+      - Updated package meta
+    </PackageReleaseNotes>
   </PropertyGroup>
 
 
