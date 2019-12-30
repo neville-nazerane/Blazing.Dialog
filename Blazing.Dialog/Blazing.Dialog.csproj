@@ -6,7 +6,7 @@
     <RootNamespace>Blazing.Dialog</RootNamespace>
 
     <Authors>Neville Nazerane</Authors>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Description>
       Provides awaitable dialogs using bootstrap modals
     </Description>
@@ -24,6 +24,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.txt" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
