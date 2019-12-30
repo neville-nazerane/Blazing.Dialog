@@ -1,0 +1,34 @@
+﻿@page "/conformationDialog"
+
+<h3>Confirmation Dialog</h3>
+
+<h2>@message</h2>
+
+
+<DialogControl Access=dialog>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Paradox</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Are you sure you want to click 'no'?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button @onclick=@(() => dialog.CompleteAsync(true)) type="button" class="btn btn-success" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+            </div>
+
+        </div>
+    </div>
+</DialogControl>
+
+<button class="btn btn-success" @onclick=ShowAsync>Show the stuff</button>
+

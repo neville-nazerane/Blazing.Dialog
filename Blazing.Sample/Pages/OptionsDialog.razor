@@ -1,0 +1,96 @@
+﻿@page  "/optionsDialog"
+
+<h3>Your options:</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Text</th>
+        </tr>
+    </thead>
+    @foreach (var item in options)
+    {
+        <tr>
+            <td>@item.Key</td>
+            <td>@item.Value</td>
+        </tr>
+    }
+</table>
+
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" @bind-value=NewOption placeholder="New option">
+    <div class="input-group-append">
+        <button @onclick=AddOption class="btn btn-success" type="submit">Add</button>
+    </div>
+</div>
+
+<h2 class="text-danger">@message</h2>
+
+<DialogControl Access=dialog>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Select your option</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="list-group">
+                    @foreach (string item in options.Values)
+                    {
+                        <a @onclick=@(() => dialog.CompleteAsync(item)) @onclick:preventDefault href="#" class="list-group-item list-group-item-action">@item</a>
+                    }
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</DialogControl>
+
+
+
+
+<DialogControl Access=dialogWithIds>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Select your option</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="list-group">
+                    @foreach (var item in options)
+                    {
+                        <a @onclick=@(() => dialogWithIds.CompleteAsync(item.Key)) @onclick:preventDefault href="#" class="list-group-item list-group-item-action">@item.Value</a>
+                    }
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</DialogControl>
+
+<div>
+    <button class="btn btn-success" @onclick=ShowAsync>Select an option</button>
+    <button class="btn btn-success" @onclick=ShowWithIdAsync>Select an option and show id</button>
+</div>
+
