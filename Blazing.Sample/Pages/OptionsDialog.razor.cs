@@ -53,7 +53,5 @@ namespace Blazing.Sample.Pages
             NewOption = null;
         }
 
-
-
     }
 }

@@ -12,7 +12,7 @@ namespace Blazing.Dialog
 
         TaskCompletionSource<object> taskCompletionSource;
 
-        protected static ConcurrentDictionary<string, DialogAccess> openedDialogues = new ConcurrentDictionary<string, DialogAccess>();
+        internal static ConcurrentDictionary<string, DialogAccess> openedDialogues = new ConcurrentDictionary<string, DialogAccess>();
 
         internal Func<Task> OpenAction { get; set; }
         internal Func<Task> CloseAction { get; set; }

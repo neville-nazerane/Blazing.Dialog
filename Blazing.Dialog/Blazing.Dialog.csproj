@@ -14,7 +14,9 @@
     <PackageTags>bootstrap modal blazor dialog async await popup</PackageTags>
     <PackageVersion>1.0.0</PackageVersion>
     <PackageReleaseNotes>
-      - Updated package meta
+      - OpenAsync functionality for bootstrap modals
+      - OpenAsync functions can return any generic type
+      - Properties and events meant for binding with bootstrap modals
     </PackageReleaseNotes>
   </PropertyGroup>
 
