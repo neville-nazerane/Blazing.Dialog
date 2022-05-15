@@ -10,7 +10,7 @@ namespace Blazing.Dialog
     public class DialogAccess
     {
 
-        TaskCompletionSource<object> taskCompletionSource;
+        TaskCompletionSource taskCompletionSource;
 
         internal static ConcurrentDictionary<string, DialogAccess> openedDialogues = new ConcurrentDictionary<string, DialogAccess>();
 
@@ -29,7 +29,7 @@ namespace Blazing.Dialog
         {
             if (OpenAction is null) throw new Exception("Not set to dialog");
             if (taskCompletionSource != null || openedDialogues.ContainsKey(DialogId)) return;
-            taskCompletionSource = new TaskCompletionSource<object>();
+            taskCompletionSource = new TaskCompletionSource();
             openedDialogues[DialogId] = this;
             await OpenAction();
             await taskCompletionSource.Task;
@@ -39,7 +39,7 @@ namespace Blazing.Dialog
 
         internal virtual void ClearTask()
         {
-            taskCompletionSource.SetResult(null);
+            taskCompletionSource.SetResult();
             openedDialogues.TryRemove(DialogId, out _);
             taskCompletionSource = null;
         }
