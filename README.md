@@ -21,7 +21,7 @@ Open dialogs (bootstrap modals) in blazor with awaitable calls.
 
 ## Installation:
 
-1. Install the nuget package 
+1. Install the [nuget package](https://www.nuget.org/packages/Blazing.Dialog/) 
     ```powershell
     install-package Blazing.Dialog
     ```
